@@ -1,7 +1,7 @@
 import XCTest
 import class Foundation.Bundle
 
-final class algorithm_learnTests: XCTestCase {
+final class SortTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
@@ -12,7 +12,7 @@ final class algorithm_learnTests: XCTestCase {
             return
         }
 
-        let fooBinary = productsDirectory.appendingPathComponent("algorithm-learn")
+        let fooBinary = productsDirectory.appendingPathComponent("Sort")
 
         let process = Process()
         process.executableURL = fooBinary

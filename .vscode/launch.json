@@ -6,7 +6,7 @@
       "name": "Launch",
       "type": "lldb",
       "request": "launch",
-      "program": "${workspaceFolder}/algorithm-learn",
+      "program": "${workspaceFolder}/Swift/Sort/.build/debug/Sort",
       "args": ["-arg1", "-arg2"],
     },
       // Running executables
@@ -14,8 +14,9 @@
           "type": "lldb",
           "request": "launch",
           "name": "Run your Executable",
-          "program": "${workspaceFolder}/.build/debug/algorithm-learn",
-          "args": [],
+          "program": "${workspaceFolder}/Swift/Sort/.build/debug/Sort",
+          "args": [
+          ],
           "cwd": "${workspaceFolder}",
           "preLaunchTask": "swift-build"
       },
@@ -26,7 +27,7 @@
           "name": "Debug tests on macOS",
           "program": "/Applications/Xcode.app/Contents/Developer/usr/bin/xctest", //For example /Applications/Xcode.app/Contents/Developer/usr/bin/xctest
           "args": [
-              "${workspaceFolder}/.build/debug/algorithm-learnPackageTests.xctest"
+              "${workspaceFolder}/Swift/Sort/.build/debug/SortPackageTests.xctest"
           ],
           "preLaunchTask": "swift-build-tests"
       },

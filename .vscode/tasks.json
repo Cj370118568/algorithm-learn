@@ -7,6 +7,9 @@
     {
       "label": "swift-build",
       "type": "shell",
+      "options": {
+        "cwd":"${workspaceFolder}/Swift/Sort/",
+      },
       "command": "swift build" // for TensorFlow add -Xlinker -ltensorflow
   },
   // compile your SPM tests
