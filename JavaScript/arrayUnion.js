@@ -5,8 +5,9 @@
  */
 var intersect = function(nums1, nums2) {
 
-    nums1.sort()
-    nums2.sort()
+    nums1.sort((a,b)=>(a-b))
+    nums2.sort((a,b)=>(a-b))
+    console.log(nums2)
     var unionArray = []
 
     var findExist = function(targetArray,left,right,element) {
@@ -50,5 +51,3 @@ var nums1 = [61,24,20,58,95,53,17,32,45,85,70,20,83,62,35,89,5,95,12,86,58,77,30
 , nums2 = [5,25,4,39,57,49,93,79,7,8,49,89,2,7,73,88,45,15,34,92,84,38,85,34,16,6,99,0,2,36,68,52,73,50,77,44,61,48]
 
 console.log(intersect(nums1,nums2))
-console.log(nums1)
-console.log(nums2)
