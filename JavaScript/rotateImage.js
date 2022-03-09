@@ -5,60 +5,35 @@
 var rotate = function (matrix) {
 
   var swap = function (nums, i, j) {
-    // var i1 = j,j1 = nums.length-1-i
+    if (i==j && i==Math.floor(nums.length/2)) {
+      return 
+    }
+    var i1 = j,j1 = nums.length-1-i
     var i1,j1
-    var tmp
+    var tmp,tmp1
+    tmp = nums[i][j]
     
     while (!(i1==i&&j1==j)) {
-      if(typeof i1 === 'undefined') {
-        
-        i1 = j
-        j1 = nums.length-1-i
-        nums[i1][j1]=nums[i][j]
-
-      } else {
-        tmp = nums[i1][j1]
+        tmp1 = nums[i1][j1]
         nums[i1][j1]=tmp
-        console.log('old:',i1,j1)
         
+        const tmpj1 = j1
         j1 = nums.length - 1 - i1
-        i1 = j1
-        
-        console.log('new:',i1,j1)
+        i1 = tmpj1
+        tmp=tmp1
       }
-
-    } 
+      nums[i][j]=tmp
   }
 
   var n = matrix.length
   for (let i = 0; i < n; i++) {
     //i n-1-i => j
     //j =>i
-    for (let j = 0; j < n; j++) {
-      if (i<(Math.ceil(n/2)) || j<(Math.ceil(n/2))) {
-        swap(matrix,i,j,j,n-1-i)
-      }
-
+    for (let j = i; j < n-1-i; j++) {
+      swap(matrix,i,j,j,n-1-i)
 
     }
   }
-
-  // for(let i=0;i<n;i++) {
-  //   //i n-1-i => j
-  //   //j =>i
-  //   for(let j=0;j<n;j++) {
-  //     // if (i<(Math.ceil(n/2)) || j<(Math.ceil(n/2))) {
-
-  //     //   console.log('old:',i,j)
-  //     //   console.log('new',j,n-1-i)
-  //     //   swap(matrix,i,j,j,n-1-i)
-  //     // }
-  //     if(i!=j) {
-  //       swap(matrix,i,j,j,n-1-i)
-  //     }
-
-  //   }
-  // }
 
   return matrix
 };
