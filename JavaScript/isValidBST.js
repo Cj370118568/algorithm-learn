@@ -11,19 +11,29 @@
  * @return {boolean}
  */
  var isValidBST = function(root) {
+   var i=0
    var process = function(tree) {
-     if(!tree) {
-      return null
-     }
+     i++
 
-     var left = process(tree.left)
-     var right = process(tree.right)
-
-     var returnData = {
+    var returnData = {
       "isBST":true,
       "min":0,
       "max":0
     }
+    if(!tree) {
+      return null
+    }
+
+     var left = (tree && tree.left) ? process(tree.left) : null
+     var right = (tree && tree.right) ? process(tree.right) : null
+     console.log('---------------')
+     console.log(left)
+     console.log(right)
+     console.log(i)
+     console.log("treenode",tree)
+     console.log('---------------')
+
+
      if((left && !left.isBST) || (right && !right.isBST)) {
        returnData.isBST =false
       return returnData
@@ -58,7 +68,8 @@
           returnData.max = left.max
         }
        } else {
-         return null;
+         returnData.min = tree.val
+         returnData.max = tree.val
        }
      }
      return returnData
@@ -71,3 +82,13 @@
 
 
 };
+
+function TreeNode(val, left, right) {
+     this.val = (val===undefined ? 0 : val)
+     this.left = (left===undefined ? null : left)
+     this.right = (right===undefined ? null : right)
+}
+
+var initaltree = new TreeNode(5,new TreeNode(1,null,null),new TreeNode(4,new TreeNode(3,null,null),new TreeNode(6,null,null)))
+
+console.log(isValidBST(initaltree))
