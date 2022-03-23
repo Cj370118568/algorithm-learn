@@ -11,30 +11,20 @@
  * @return {TreeNode}
  */
 var sortedArrayToBST = function(nums) {
-  var length = nums.length
-  if(length<1) return null
-  if(length<2) return root = new TreeNode(nums[0])
-  
-  var middle = Math.ceil(length/2)
-  var left = nums.splice(0,middle)
-  const root = new TreeNode(left.pop())
-  const nodes = [root]
-  let index = 0
-
-  while(index<length-1) {
-     
+  var process = function(nums) {
+    var length = nums.length
+    if(length<1) return null
+    if(length<2) return new TreeNode(nums[0])
+    
+    var middle = Math.ceil(length/2)
+    var left = nums.splice(0,middle)
+    const root = new TreeNode(left.pop())
+    root.left = process(left)
+    root.right = process(nums)
+    return root
   }
-  for (node of nodes) {
-    nodes.push(node.left = new TreeNode(left.shift()))
-    index++
-    if(index == length-1) return root
-
-    nodes.push(node.right = new TreeNode(nums.shift()))
-    index++
-    if(index == length-1) return root
-  }
-  
-  
+  return process(nums)
+ 
 };
 
 function TreeNode(val, left, right) {
