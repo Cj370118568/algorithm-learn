@@ -33,5 +33,5 @@ function TreeNode(val, left, right) {
   this.right = (right === undefined ? null : right)
 }
 
-var nums = [-10,-3,0,5,9]
-console.log(sortedArrayToBST(nums))
+var arr = [-10,-3,0,5,9]
+console.log(sortedArrayToBST(arr))
