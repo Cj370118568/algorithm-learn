@@ -37,10 +37,11 @@ var longestPalindrome = function (s) {
   const length = s.length;
   if (s.length < 2) return s;
   var dp = new Array(length).fill(0).map(() => new Array(length).fill(0));
-  var longestStr = (dp[0][0] = s[0]);
+  var longestStr = s[0];
+  dp[0][0] = s[0];
   for (let i = 0; i < length; i++) {
-    for (let j = i; j < length; j++) {
-      const substr = s.substring(i, j);
+    for (let j = i > 0 ? i : 1; j < length; j++) {
+      const substr = s.substring(i, j + 1);
       dp[i][j] = isPalindrome(substr) ? substr : dp[i][j - 1];
       longestStr = longestStr.length > dp[i][j].length ? longestStr : dp[i][j];
     }
@@ -49,5 +50,6 @@ var longestPalindrome = function (s) {
   return longestStr;
 };
 
-var s = "bb";
+var s =
+  "ibvjkmpyzsifuxcabqqpahjdeuzaybqsrsmbfplxycsafogotliyvhxjtkrbzqxlyfwujzhkdafhebvsdhkkdbhlhmaoxmbkqiwiusngkbdhlvxdyvnjrzvxmukvdfobzlmvnbnilnsyrgoygfdzjlymhprcpxsnxpcafctikxxybcusgjwmfklkffehbvlhvxfiddznwumxosomfbgxoruoqrhezgsgidgcfzbtdftjxeahriirqgxbhicoxavquhbkaomrroghdnfkknyigsluqebaqrtcwgmlnvmxoagisdmsokeznjsnwpxygjjptvyjjkbmkxvlivinmpnpxgmmorkasebngirckqcawgevljplkkgextudqaodwqmfljljhrujoerycoojwwgtklypicgkyaboqjfivbeqdlonxeidgxsyzugkntoevwfuxovazcyayvwbcqswzhytlmtmrtwpikgacnpkbwgfmpavzyjoxughwhvlsxsgttbcyrlkaarngeoaldsdtjncivhcfsaohmdhgbwkuemcembmlwbwquxfaiukoqvzmgoeppieztdacvwngbkcxknbytvztodbfnjhbtwpjlzuajnlzfmmujhcggpdcwdquutdiubgcvnxvgspmfumeqrofewynizvynavjzkbpkuxxvkjujectdyfwygnfsukvzflcuxxzvxzravzznpxttduajhbsyiywpqunnarabcroljwcbdydagachbobkcvudkoddldaucwruobfylfhyvjuynjrosxczgjwudpxaqwnboxgxybnngxxhibesiaxkicinikzzmonftqkcudlzfzutplbycejmkpxcygsafzkgudy";
 console.log(longestPalindrome(s));
