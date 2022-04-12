@@ -25,30 +25,9 @@ var minDepth = function (root) {
   return process(root);
 };
 
-function TreeNode(val, left, right) {
-  this.val = val === undefined ? 0 : val;
-  this.left = left === undefined ? null : left;
-  this.right = right === undefined ? null : right;
-}
-
-function buildTreeFromArr(arr) {
-  if (arr.length === 0) return null;
-
-  const root = new TreeNode(arr[0]);
-  const nodes = [root];
-  let index = 1;
-  for (node of nodes) {
-    if (arr[index]) nodes.push((node.left = new TreeNode(arr[index])));
-
-    index++;
-    if (index === arr.length) return root;
-    if (arr[index]) nodes.push((node.right = new TreeNode(arr[index])));
-    index++;
-    if (index === arr.length) return root;
-  }
-}
+import BinaryTree from "../common/BinaryTree.js";
 
 var arr = [2, null, 3, null, 4, null, 5, null, 6];
 
-const root = buildTreeFromArr(arr);
+const root = BinaryTree.buildTreeFromArr(arr);
 console.log(minDepth(root));

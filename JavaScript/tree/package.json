@@ -1,0 +1,12 @@
+{
+  "name": "tree",
+  "version": "1.0.0",
+  "description": "js file reusetest",
+  "main": "main.js",
+  "scripts": {
+    "test": "dev"
+  },
+  "author": "Cj",
+  "license": "ISC",
+  "type": "module"
+}
